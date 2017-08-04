@@ -1,0 +1,40 @@
+@import "../../dev/mixins.sass"
+@import "../../dev/variables.sass"
+
+#header-top
+  height: $top-nav-height
+  .nav-content
+    >.left-nav, >.right-nav
+      >ul
+        >li
+          display: inline-block
+          vertical-align: middle
+          margin-right: 16px
+          >a
+            font-size: $top-nav-font-size
+            color: $top-nav-font-color
+            @include tracking(30)
+            .icon
+              font-size: 18px
+              margin: 0 5px
+            span
+              opacity: .5
+              vertical-align: middle
+          &:nth-child(2n+0)
+            a
+              span
+                position: relative
+                &:before, &:after
+                  content: ""
+                  position: absolute
+                  top: 50%
+                  margin-top: -7px
+                  width: 1px
+                  height: 14px
+                  background-color: rgba(255, 255, 255, .5)
+                &:before
+                  left: -10px
+                &:after
+                  right: -10px
+          &:last-child
+            margin-right: 0

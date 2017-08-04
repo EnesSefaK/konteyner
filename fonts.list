@@ -1,0 +1,5 @@
+# Tab-delimeted format
+#Oswald	400,700	latin,latin-ext
+
+# Google format
+Roboto:100,300,400,500,700,900&subset=latin,latin-ext

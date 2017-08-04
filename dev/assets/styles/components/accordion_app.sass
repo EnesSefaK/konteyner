@@ -1,0 +1,41 @@
+@import "../dev/mixins.sass"
+@import "../dev/variables.sass"
+.accordion-menu
+  input
+    position: absolute
+    right: 0
+    top: 0
+    opacity: 0
+    visibility: hidden
+    &:checked
+      + label
+        .icon
+          @include rotate(180deg)
+      ~ ul
+        display: block
+        padding-top: 18px
+        height: auto
+  label
+    display: block
+    width: 100%
+    padding: 18px 15px
+    font-size: 14px
+    line-height: 30px
+    @include tracking(30)
+    @include transition(color .3s ease-in-out)
+    @include box-sizing(border-box)
+    .icon
+      float: right
+      @include transition(transform .3s ease-in-out)
+  ul
+    padding: 0 0
+    height: 0
+    overflow: hidden
+    @include transition(padding .3s ease-in-out, height .3s ease-in-out)
+    li
+      padding: 0px 15px 18px 15px
+      line-height: 30px
+      a
+        font-size: 14px
+        @include tracking(30)
+        color: #8b8bc1

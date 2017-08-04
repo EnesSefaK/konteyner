@@ -1,0 +1,173 @@
+$lg-width: 1200px
+$md-width: 992px
+$sm-width: 768px
+$xs-width: 480px
+$iphone-retina: 320px
+
+=responsive($point) 
+  @if $point == desktop 
+    @media only screen and (max-width : $lg-width)
+      @content  
+  @else if $point == laptop 
+    @media only screen and (max-width : $md-width)
+      @content
+  @else if $point == tablet 
+    @media only screen and (max-width : $sm-width)
+      @content
+  @else if $point == mobile 
+    @media only screen and (max-width : $xs-width)
+      @content
+  @else if $point == iphone 
+    @media only screen and (max-width : $iphone-retina)
+      @content 
+  @else
+    @media only screen and (max-width : $point)
+      @content
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
+=clearfix()
+  display: table
+  clear: both
+  visibility: hidden
+
+=background-size($size)
+  background-size: $size
+  -webkit-background-size: $size
+  -moz-background-size: $size
+  -o-background-size: $size
+
+=transition($transition...)
+  transition: $transition  
+  -webkit-transition: $transition  
+  moz-transition: $transition  
+  o-transition: $transition  
+  ms-transition: $transition  
+
+=transition-duration($duration)
+  transition-duration: $duration  
+  -webkit-transition-duration: $duration  
+  moz-transition-duration: $duration  
+  o-transition-duration: $duration  
+
+=transition-delay($delay)
+  transition-delay: $delay  
+  -webkit-transition-delay: $delay  
+  moz-transition-delay: $delay  
+  o-transition-delay: $delay  
+
+=box-shadow($shadow)
+    box-shadow: $shadow
+    -webkit-box-shadow: $shadow
+    -moz-box-shadow: $shadow
+    -o-box-shadow: $shadow
+    -ms-box-shadow: $shadow
+
+=transform($tansform)
+	-moz-transform: $tansform	
+	transform: $tansform
+	-webkit-transform: $tansform
+	-ms-transform: $tansform
+
+// scale
+=scale($scale...) 
+	+transform(scale($scale))
+
+=scaleX($scale...) 
+	+transform(scaleY($scale))
+
+=scaleY($scale...) 
+	+transform(scaleX($scale))
+
+// rotate
+=rotate($rotate...) 
+	+transform(rotate($rotate))
+
+// translate
+=translate($translate...) 
+	+transform(translate($translate))
+
+=translateX($translateX) 
+	+transform(translateX($translateX))
+
+=translateY($translateY) 
+	+transform(translateY($translateY))
+
+=transform-origin($transform-origin)
+  transform-origin: $transform-origin
+  -webkit-transform-origin: $transform-origin
+  -moz-transform-origin: $transform-origin
+  -o-transform-origin: $transform-origin
+  -ms-transform-origin: $transform-origin
+
+=filter($filter...)
+  filter: $filter
+  -webkit-filter: $filter
+  -ms-filter: $filter
+
+=appearance($appearance:none)
+	appearance: $appearance
+	-webkit-appearance: $appearance
+	-ms-appearance: $appearance
+	-moz-appearance: $appearance
+
+=border-radius($radius: 0)
+  -webkit-border-radius: $radius
+  border-radius: $radius
+
+=box-sizing($sizing: border-box)
+  -webkit-box-sizing: $sizing
+  -moz-box-sizing: $sizing
+  box-sizing: $sizing
+
+=tracking( $target )
+  letter-spacing: ($target / 1000) * 1em
+
+=animation-delay($animation-delay)
+  animation-delay:  $animation-delay !important
+  -webkit-animation-delay:  $animation-delay !important
+  -moz-animation-delay:  $animation-delay !important
+  -o-animation-delay:  $animation-delay !important
+
+=animation-duration($animation-duration)
+  animation-duration:  $animation-duration !important
+  -webkit-animation-duration:  $animation-duration !important
+  -moz-animation-duration:  $animation-duration !important
+  -o-animation-duration:  $animation-duration !important
+
+@function convert($value, $currentUnit, $convertUnit)
+   @if $currentUnit == px
+      @if $convertUnit == ems
+        @return $value / 16 + 0em
+      
+      @else if $convertUnit == percent
+        @return percentage($value / 16)
+      
+
+   @else if $currentUnit == ems
+      @if $convertUnit == px
+        @return $value * 16 + 0px
+      
+      @else if $convertUnit == percent
+        @return percentage($value)
+      
+   @else if $currentUnit == percent
+      @if $convertUnit == px
+        @return $value * 16 / 100 + 0px
+      
+      @else if $convertUnit == ems
+        @return $value / 100 + 0em
+      
+   @else if $currentUnit == pts
+      @if $convertUnit == px
+        @return $value * 1.3333 +0px
+      
+      @else if $convertUnit == ems
+        @return $value / 12 + 0em
+      
+      @else if $convertUnit == percent
+        @return percentage($value / 12)

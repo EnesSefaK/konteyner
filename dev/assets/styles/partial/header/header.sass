@@ -1,0 +1,384 @@
+@import "../../dev/mixins.sass"
+@import "../../dev/variables.sass"
+
+header#header, header#header-sticky
+  .nav-content
+    position: relative
+    height: 100%
+    &:after
+      content: ""
+      @include clearfix()
+
+header#header
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 2
+  &:after, &:before
+    content: ""
+    position: absolute
+    top: $top-nav-height + 1px
+    width: 40%
+    height: 1px
+    background-color: rgb(255, 255, 255)
+    opacity: .1
+    filter: alpha(opacity=10)
+  &:before
+    left: 0
+  &:after
+    right: 0
+
+#header-top
+  .nav-content
+    >.left-nav
+      float: left
+      text-align: left
+    >.right-nav
+      float: right
+      text-align: right
+    >.left-nav, >.right-nav
+      width: 40%
+      height: 100%
+      display: table
+      >ul
+        display: table-cell
+        vertical-align: middle
+        width: 100%
+        height: 100%
+#header-bottom
+  .nav-content
+    #brand
+      width: 20%
+      float: left
+      text-align: center
+      img
+        margin-top: -20px
+    >.left-nav
+      float: left
+      text-align: left
+    >.right-nav
+      float: right
+      text-align: right
+    >.left-nav, >.right-nav
+      width: 40%
+      height: 100%
+      >ul
+        display: table
+        width: 100%
+        height: 100%
+        >li
+          display: table-cell
+          vertical-align: middle
+
+#header-sticky
+  position: fixed
+  left: 0
+  top: -100%
+  width: 100%
+  height: $sticky-height
+  background-color: #fbfdf8
+  z-index: 99999
+  @include transition(top .6s linear)
+  .search
+    &.active
+      a
+        &:after
+          background-color: $yellow
+          border-color: $yellow
+  nav
+    display: table
+    height: $sticky-height
+    float: left
+    &.left-nav
+      width: 80%
+    &.right-nav
+      width: 20%
+    >ul
+      list-style: none
+      display: table-row
+      >li
+        display: table-cell
+        float: none
+        vertical-align: middle
+        &.brand
+          a
+            position: relative
+            width: $sticky-logo-width
+            min-height: 20px
+            img
+              position: absolute
+              width: $sticky-logo-width
+              margin-top: -10px
+        >a
+          font-size: 12px
+          line-height: 23px
+          @include tracking(50)
+          color: #322783
+          display: inline-block
+          padding: 0 10px
+          .icon
+            color: $yellow
+            font-size: 20px
+            padding: 0 10px
+.submenu
+  &:hover
+    > .submenu-content
+      @include scaleX(1)
+  .submenu-content
+    position: absolute
+    top: 100%
+    padding-top: 30px
+    @include scaleX(0)
+    @include transition(transform 0.3s ease-in-out)
+    @include transform-origin(50% 0%)
+    .cursor
+      position: absolute
+      border-width: 0px 10px 10px 10px
+      border-color: transparent transparent #fff transparent
+      border-style: solid
+      top: 20px
+      left: 50%
+      margin-left: -10px
+    ul
+      list-style: none
+      width: 246px
+      background-color: #fff
+      padding: 40px 45px
+      float: left
+      +box-sizing(border-box)
+      li
+        display: block
+        text-align: left
+        a
+          display: inline-block
+          color: #6d6da0
+          font-size: 13px
+          line-height: 45px
+          font-weight: 400
+          @include tracking(25)
+.search
+  > a
+    position: relative
+    &:after
+      content: ""
+      position: absolute
+      left: -16px
+      top: -20px
+      width: 50px
+      height: 50px
+      border-radius: 100px
+      border-style: solid
+      border-color: transparent
+      border-width: 1px
+      background-color: transparent
+      opacity: 1
+      @include scale(0)
+      @include transition(background-color 0.2s ease-in-out, border-color 0.6s ease-in-out, opacity 0.6s ease-in-out, transform 0.6s ease-in-out)
+      z-index: -1
+  &.active
+    > a
+      &:after
+        @include scale(1)
+        background-color: #fff
+        border-color: #fff
+        opacity: 0
+    .search-box
+      .cursor
+        top: 0px
+  &:hover
+    .search-box
+      @include scale(1)
+.search-box
+  overflow: hidden
+  position: absolute
+  width: 100%
+  top: 100%
+  margin-top: 1px
+  left: 0
+  z-index: 999
+  text-align: left
+  @include scale(0)
+  -webkit-transition: -webkit-transform 3s ease-in-out
+  -moz-transition: -moz-transform 0.8s ease-in-out
+  -o-transition: -o-transform 0.8s ease-in-out
+  transition: transform 0.8s ease-in-out
+  &:before
+    content: ""
+    display: block
+    width: 100%
+    height: 10px
+    background-color: transparent
+  .cursor
+    position: absolute
+    top: 3px
+    margin-left: -30px
+    z-index: 9999
+    border-width: 0px 10px 10px 10px
+    border-style: solid
+    border-color: transparent transparent #fff transparent
+    @include transition(top .3s)
+  .search-box-content
+    padding: 65px 105px
+    background-color: #fff
+    @include box-sizing(border-box)
+    .search-input
+      margin-bottom: 78px
+      position: relative
+      &:after
+        content: "\ea11"
+        position: absolute
+        right: 15px
+        bottom: 15px
+        font-family: 'tarabyaIcon'
+        font-size: 40px
+        color: $yellow
+      input
+        display: block
+        width: 100%
+        height: 60px
+        font-size: 30px
+        color: #3e446b
+        font-weight: $light
+        border-width: 0 0 1px 0
+        border-color: #d8dae1
+    .search-main
+      >.title
+        color: #8589a4
+        line-height: 45px
+        @include tracking(25)
+        font-size: 13px
+        font-weight: $regular
+        @include animation-delay(.1s)
+      >ul
+        li
+          margin-top: 13px
+          &:nth-child(1)
+            @include animation-delay(.2s)
+          &:nth-child(2)
+            @include animation-delay(.3s)
+          &:nth-child(3)
+            @include animation-delay(.6s)
+          &:nth-child(4)
+            @include animation-delay(.9s)
+          a
+            color: #3e446b
+            font-size: 25px
+            line-height: 37.29px
+            font-weight: $light
+            @include tracking(25)
+            &:before
+              content: "\ea17"
+              font-family: 'tarabyaIcon'
+              display: inline-block
+              vertical-align: middle
+              font-size: 8.72px
+              margin-right: 30px
+              color: $yellow
+
+@import "header_top.sass"
+@import "header_bottom.sass"
+
+#header-mobile
+  position: absolute
+  z-index: 99
+  width: 100%
+  padding: 10px
+  left: 0
+  top: 0
+  display: none
+  @include box-sizing(border-box)
+  &:after
+    content: ""
+    width: calc(100% - (#{$sticky-logo-width} + 40))
+    height: 1px
+    background-color: rgba(255, 255, 255, .2)
+    position: absolute
+    bottom: 22px
+    right: 0
+  .brand
+    img
+      width: $sticky-logo-width
+  #mobil-menu-btn
+    position:  absolute
+    right: 15px
+    top: 17px
+    z-index: 10
+    &.active
+      span
+        background-color: #fff
+      span:nth-child(1)
+        @include rotate(45deg)
+        top: 9px
+      span:nth-child(2)
+        opacity: 0
+        position: absolute
+      span:nth-child(3)
+        @include rotate(-45deg)
+    span
+      display: block
+      margin-bottom: 7px
+      width: 22px
+      height: 2px
+      background-color: #ffb400
+      position: relative
+      @include transition(tranform .3s ease-in-out, opacity .3s ease-in-out)
+      &:last-child
+        margin-bottom: 0
+
+
+#mobile-nav
+  position: fixed
+  z-index: 9
+  left: -100%
+  top: 0
+  width: 100%
+  height: 100%
+  background-color: #00005f
+  overflow: auto
+  @include transition(left .3s ease-in-out)
+  @include box-sizing(border-box)
+  &.open
+    left: 0
+  padding-top: 80px
+  .accordion-menu
+    input
+      &:checked
+        + label
+          color: $yellow
+    label
+      color: #fff
+      border-width: 1px 0px
+      border-style: solid
+      border-color: rgba(255, 255, 255, .2)
+    ul
+      background-color: #020254
+      li
+        a
+          display: block
+
+.horizontal-menu
+  list-style: none
+  display: table
+  height: 80px
+  width: 100%
+  color: #fff
+  border-top: 1px solid rgba(255, 255, 255, .2)
+  li
+    display: table-cell
+    vertical-align: middle
+    float: none
+    text-align: center
+    &:nth-child(even)
+      border-style: solid
+      border-color: rgba(255, 255, 255, .2)
+      border-width: 0 1px
+    a
+      display: block
+      min-width: 40px
+
+@include responsive(mobile)
+  #header, #header-sticky
+    display: none
+  #header-mobile
+    display: block

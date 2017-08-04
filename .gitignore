@@ -2,7 +2,9 @@
 # Created by https://www.gitignore.io/api/node,visualstudiocode
 
 app/
-
+app/*
+dev/lib
+dev/lib/*
 ### Node ###
 # Logs
 logs

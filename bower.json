@@ -1,0 +1,23 @@
+{
+  "name": "Konteyner",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Enes Sefa <bilgi@enessefa.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flexiblegs-sass": "^5.5.3",
+    "gsap": "^1.20.2",
+    "choices.js": "^3.0.2"
+  }
+}
