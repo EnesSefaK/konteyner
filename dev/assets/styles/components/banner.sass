@@ -1,0 +1,38 @@
+@import "../dev/variables.sass"
+@import "../dev/mixins.sass"
+
+section#banner
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  height: 300px
+  > .container
+    height: 100%
+    position: relative
+    z-index: 1
+    display: table
+    #banner-content
+      display: table-cell
+      vertical-align: bottom
+      text-align: center
+      color: #fff
+      padding-bottom: 20px
+      #page-title
+        font-size: 40px
+        font-weight: $bold
+        +tracking(40)
+      nav#breadcrumb
+        ul
+          &:after
+            content: ""
+            +clearfix()
+          li
+            float: left
+            + li
+              margin-left: 16px
+            &.active
+              a
+                opacity: .8
+            a
+              font-size: 14px
+              color: #fff

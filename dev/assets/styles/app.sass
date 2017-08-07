@@ -2,17 +2,34 @@
 @import "dev/mixins.sass"
 
 @import "../fonts/font.css"
-/*@import "../icon-fonts/tarabyaIcon.css"*/
+@import "../../lib/flexiblegs-sass/flexiblegs-sass.sass"
+@import "../icon-fonts/fonts.css"
 
 *
   margin: 0
   padding: 0
+
+html, body
+  width: 100%
+  height: 100%
+  background-color: #F7F7F7
   font-family: $font-family
+
+#page-wrapper
+  min-height: 100%
+  height: 100%
+  width: 100%
+  position: relative
+  &.active
+    overflow: hidden
+
+@import "partial/header/header.sass"
 
 .container
   width: $lg-width
   margin: 0 auto
   padding: 0 15px
+  box-sizing: border-box
   &.no-pad
     padding: 0
   &.right
@@ -30,3 +47,122 @@ a
   text-decoration: none
   &:focus
     outline: none
+
+.icon
+  display: inline-block
+  vertical-align: middle
+
+ul
+  list-style: none
+
+@import "./components/banner.sass"
+
+#page-content
+  padding: 30px 0
+  +wrap
+  +wrap("gutter", 40)
+  aside#aside
+    +col
+    +col(3, 12)
+    section.aside-widget
+      margin-bottom: 30px
+      > header
+        margin-bottom: 10px
+        padding-bottom: 10px
+        border-bottom: 1px solid #ddd
+        &:after
+          content: ""
+          +clearfix()
+        .aside-title
+          color: #333
+          font-size: 18px
+          font-weight: $regular
+          float: left
+        .icon
+          float: right
+          font-size: 20px
+          color: $blue
+      > .form
+        ul
+          li
+            margin-bottom: 14px
+            &:after
+              content: ""
+              +clearfix()
+            .label
+              position: relative
+              float: left
+              overflow: hidden
+              padding-left: 30px
+              min-height: 30px
+              input
+                position: absolute
+                left: -200px
+                &:checked
+                  + label
+                    &:before
+                      content: "\e908"
+              label
+                position: relative
+                font-weight: $light
+                &:before
+                  content: ""
+                  position: absolute
+                  left: -30px
+                  top: 50%
+                  margin-top: -10px
+                  width: 20px
+                  height: 20px
+                  background-color: #fff
+                  color: $blue
+                  border-radius: 2.5px
+                  border: 1px solid #e6e6e6
+                  font-family: 'container' !important
+                  speak: none
+                  font-style: normal
+                  font-weight: normal
+                  font-variant: normal
+                  text-transform: none
+                  line-height: 20px
+                  text-align: center
+                  -webkit-font-smoothing: antialiased
+                  -moz-osx-font-smoothing: grayscale
+            span
+              float: right
+              background-color: $blue
+              font-size: .625em
+              color: #fff
+              line-height: 1em
+              border-radius: 10px
+              padding: 4px 8px 
+  section#content
+    +col
+    +col(9, 12)
+    > header
+      margin-bottom: 10px
+      font-weight: $regular
+      color: #262626
+      &:after
+        content: ""
+        +clearfix
+      .result-info
+        font-size: 18px
+        font-weight: $light
+        float: left
+      .page-info
+        font-weight: $light
+        float: right
+
++responsive(laptop)
+  .container
+    width: $md-width
+
++responsive(tablet)
+  .container
+    width: 100%
+
++responsive(mobile)
+  .container
+    width: 100%
+
+@import "./components/form.sass"

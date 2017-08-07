@@ -1,0 +1,57 @@
+@import "../dev/variables.sass"
+@import "../dev/mixins.sass"
+
+#pagination
+  text-align: center
+  > nav
+    background-color: #fff
+    margin: 0 auto
+    color: #262626
+    text-align: center
+    display: inline-block
+    margin: 0 auto
+    border-radius: 4px
+    box-shadow: 0 1px 2px 0 rgba(61,61,61,0.07)
+    &:after
+      content: ""
+      +clearfix
+    a[rel]
+      font-weight: $black
+      font-size: .875em
+      line-height: 27px
+      color: #262626
+      &[rel=prev]
+        float: left
+        border-right: 1px solid #F7F7F7
+        padding: 15px 20px 15px 40px
+        .icon
+          margin-right: 20px
+      &[rel=next]
+        float: right
+        border-left: 1px solid #F7F7F7
+        padding: 15px 40px 15px 20px
+        .icon
+          margin-left: 20px
+    ul
+      float: left
+      padding: 15px 20px
+      &:after
+        content: ""
+        +clearfix
+      li
+        float: left
+        &:not(.active)
+          &:hover 
+            a
+              color: $blue
+        &.active
+          a
+            background-color: $blue
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2)
+            color: #fff
+        a
+          font-weight: $black
+          font-size: .875em
+          line-height: 27px
+          padding: 5px 10px
+          border-radius: 3px

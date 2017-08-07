@@ -1,0 +1,75 @@
+@import "../dev/variables.sass"
+@import "../dev/mixins.sass"
+@import "../../../lib/flexiblegs-sass/flexiblegs-sass.sass"
+
+section#search-top
+  padding: 30px 0
+  width: 100%
+  background-color: #eee
+  form#search-form
+    .select-boxes
+      display: table
+      width: 100%
+      .select-control
+        display: table-cell
+        vertical-align: middle
+        + .select-control
+          padding-left: 16px
+
+.search-list
+  &__item
+    background-color: #fff
+    padding: 10px 0
+    margin-bottom: 14px
+    box-shadow: 0 1px 2px 0 rgba(61,61,61,0.07)
+    +wrap
+    +wrap("middle")
+    figure
+      +col
+      +col(3, 12)
+      > img
+        max-width: 100%
+        height: 90px
+        display: block
+        margin: 0 auto
+      > figcaption
+        display: none
+    .search-list-info
+      +col
+      +col(6, 12)
+      font-weight: $regular
+      line-height: 1.85714em
+      .product-name
+        font-size: 16px
+        +tracking(40)
+        color: #262626
+        font-weight: $regular
+      .product-location
+        font-size: 16px
+        color: #B3B3B3
+      .product-stock
+        font-size: 16px
+        color: #262626
+    .search-list-action
+      +col
+      +col(3, 12)
+      .button
+        float: right
+        margin-right: 20px
+        &:hover
+          background-color: $blue
+          color: #fff
+    #search-form
+      +col
+      +col(1, 1)
+      background-color: #ddd
+      padding:  20px
+
+@import "../components/pagination.sass"
+
++responsive(mobile)
+  section#search-top
+    overflow: scroll
+    form#search-form
+      .select-boxes
+        .select-control

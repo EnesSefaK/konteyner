@@ -9,7 +9,6 @@ module.exports = {
     path.join(__dirname,libFolder,"/choices.js/assets/scripts/dist/choices.min.js"),
   ],
   styleLibFiles: [
-    path.join(__dirname,libFolder,"/choices.js/assets/styles/base.min.css"),
-    path.join(__dirname,libFolder,"/choices.js/assets/styles/choices.min.css")
+    path.join(__dirname,libFolder,"/choices.js/assets/styles/css/choices.min.css")
   ]
 };

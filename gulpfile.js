@@ -89,7 +89,7 @@ gulp.task('views', function () {
     return gulp
       .src(watchFiles.view)
       .pipe(pug({
-        pretty: true
+        pretty: false
       }))
       .pipe(gulp.dest(DestFolder.view))
   });
@@ -155,7 +155,6 @@ gulp.task('libCss', function () {
   rimraf(path.join(DestFolder.libCss, settings.libCssFileName), function () {
     return gulp
       .src(lib.styleLibFiles)
-      .pipe(sass().on('error', sass.logError))
       .pipe(concat(settings.libCssFileName))
       .pipe(sourcemaps.init())
       .pipe(gulp.dest(DestFolder.libCss))
@@ -315,7 +314,6 @@ gulp.task('watch', function () {
   gulp.watch(watchFiles.sass, ['sass']);
   gulp.watch(watchFiles.less, ['less']);
   gulp.watch(watchFiles.googleFont, ['googleFont']);
-  gulp.watch(watchFiles.iconFont, ['Iconfont']);
   gulp.watch(watchFiles.img, ['imagemin']);
 });
 
@@ -326,7 +324,6 @@ gulp.task('all', [
   'css',
   'js',
   'googleFont',
-  'iconfont',
   'imagemin'
 ]);
 gulp.task('default', ['connect', 'watch']);
