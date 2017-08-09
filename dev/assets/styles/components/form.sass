@@ -4,12 +4,12 @@
 
 form
   h1.form-title
-    color: #fff
+    color: rgba(0,0,0,.87)
     font-size: 30px
     font-weight: $black
     +tracking(40)
   p.form-note
-    color: #fff
+    color: rgba(0,0,0,.87)
     font-size: 13px
     font-weight: $regular
     +tracking(40)
@@ -56,12 +56,12 @@ form
   position: relative
   overflow: hidden
   span
-    background-color: #ddd
+    background-color: #fff
     width: 1px
     height: 1px
     position: absolute
     border-radius: 50%
-    opacity: 0
+    opacity: 1
     left: 50%
     top: 50%
   &:focus
@@ -74,11 +74,11 @@ form
 
 .text
   box-sizing: border-box
-  box-shadow: 0 1px 2px 0 rgba(61,61,61,.07)
-  border-radius: 2.5px
+  border-radius: 0
   font-size: 14px
   background-color: #fff
   border: none
+  border-bottom: 1px solid $darkblue
   padding: 20px
   width: 100%
   margin: 10px auto
@@ -93,14 +93,34 @@ form
   height: 100%
   left: 0
   top: 0
-  background-color: rgba(0, 0, 0, .5)
-  #popup-content
-    position: absolute
-    left: 50%
-    top: 50%
-    transform: translate(-50%)
+  background-color: rgba(0, 0, 0, .8)
+  &.active
+    display: block
+  > .container
+    position: relative
+    height: 100%
+    padding: 10px
+    background-color: #fff
+    > .button
+      position: absolute
+      right: 20px
+      top: 20px
+      .icon
+        margin-right: 0
+    #popup-content
+      position: absolute
+      padding: 100px
+      top: 50%
+      left: 50%
+      overflow: hidden
 
 +responsive(mobile)
   form
     h1.form-title
       font-size: 20px
+  #popup
+    >.container
+      > .button
+        top: 5px
+      #popup-content
+        padding: 100px 20px 20px 20px

@@ -10,7 +10,7 @@ block banner
   section#banner(style="background-image: url(assets/images/banner.jpg)")
     .container
       #banner-content
-        h1#page-title  SAERCH CONTAINERS
+        h1#page-title  SEARCH CONTAINERS
         nav#breadcrumb
           ul
             li
@@ -47,7 +47,7 @@ block content
               option Type2
               option Type3
   .container
-    #page-content
+    #page-side-content
       aside#aside
         section.aside-widget
           header
@@ -99,7 +99,7 @@ block content
           span.page-info  Page 
             strong 2 
             | / 3
-        .search-list
+        .search-list#search-list
           -
             containerImg = [
               "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_high_cube_dry.png",
@@ -110,7 +110,7 @@ block content
               "https://maersklinecontainersales.com/assets/images/productdetails/45_foot_high_cube_dry.png"
             ]
           for item, i in containerImg
-            - _id = "prod-"+i;
+            - _id = "searchListItem"+i;
             .search-list__item(id= _id)
               figure
                 img(src= item, alt="alt")
@@ -121,9 +121,10 @@ block content
                 p.product-stock Stock: 
                   span 62
               .search-list-action
-                a.button
+                a.button.search-list-button
                   | CONTACT US
                   span
+                  span               
         footer
           #pagination
             nav
@@ -141,17 +142,23 @@ block content
                 | NEXT
                 i.icon.icon-chevron-right
   #popup
-    #popup-content
-      .container
+    .container
+      button.button#popup-close
+        i.icon.icon-close
+      #popup-content
         #search-form
           form
-            h1.form-title CONTACT
-            p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, optio.
-            .text-control
-              input(type="text", placeholder="Name Surname").text
-            .text-control
-              input(type="tel", placeholder="Phone").text
-            .text-control
-              input(type="email", placeholder="Mail").text
-            .textdesc-control
-              textarea(placeholder="Description").text
+            #search-form-info
+              h1.form-title CONTACT
+              p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, optio.
+            #search-form-content
+              .text-control
+                input(type="text", placeholder="Name").text
+              .text-control
+                input(type="text", placeholder="Surname").text
+              .text-control
+                input(type="tel", placeholder="Phone").text
+              .text-control
+                input(type="email", placeholder="Mail").text
+              .textdesc-control
+                textarea(placeholder="Description").text

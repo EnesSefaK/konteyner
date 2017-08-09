@@ -1,0 +1,99 @@
+@import "../dev/variables.sass"
+@import "../dev/mixins.sass"
+@import "../../../lib/flexiblegs-sass/flexiblegs-sass.sass"
+
+#page-side-content
+  padding: 30px 0
+  +wrap
+  +wrap("gutter", 40)
+  aside#aside
+    +col
+    +col(3, 12)
+    section.aside-widget
+      margin-bottom: 30px
+      > header
+        margin-bottom: 10px
+        padding-bottom: 10px
+        border-bottom: 1px solid #ddd
+        &:after
+          content: ""
+          +clearfix()
+        .aside-title
+          color: #333
+          font-size: 18px
+          font-weight: $regular
+          float: left
+        .icon
+          float: right
+          font-size: 20px
+          color: $blue
+      > .form
+        ul
+          li
+            margin-bottom: 14px
+            &:after
+              content: ""
+              +clearfix()
+            .label
+              position: relative
+              float: left
+              overflow: hidden
+              padding-left: 30px
+              min-height: 30px
+              input
+                position: absolute
+                left: -200px
+                &:checked
+                  + label
+                    &:before
+                      content: "\e908"
+              label
+                position: relative
+                font-weight: $light
+                &:before
+                  content: ""
+                  position: absolute
+                  left: -30px
+                  top: 50%
+                  margin-top: -10px
+                  width: 20px
+                  height: 20px
+                  background-color: #fff
+                  color: $blue
+                  border-radius: 2.5px
+                  border: 1px solid #e6e6e6
+                  font-family: 'container' !important
+                  speak: none
+                  font-style: normal
+                  font-weight: normal
+                  font-variant: normal
+                  text-transform: none
+                  line-height: 20px
+                  text-align: center
+                  -webkit-font-smoothing: antialiased
+                  -moz-osx-font-smoothing: grayscale
+            span
+              float: right
+              background-color: $blue
+              font-size: .625em
+              color: #fff
+              line-height: 1em
+              border-radius: 10px
+              padding: 4px 8px 
+  section#content
+    +col
+    +col(9, 12)
+    > header
+      margin-bottom: 10px
+      font-weight: $regular
+      color: #262626
+      &:after
+        content: ""
+        +clearfix
+      .result-info
+        font-size: 18px
+        font-weight: $light
+        float: left
+      .page-info
+        font-weight: $light
+        float: right

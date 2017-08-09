@@ -1,6 +1,10 @@
 @import "../dev/variables.sass"
 @import "../dev/mixins.sass"
+@import "../components/banner.sass"
+@import "../components/aside_content.sass"
 @import "../../../lib/flexiblegs-sass/flexiblegs-sass.sass"
+body
+  background-color: #F7F7F7
 
 section#search-top
   padding: 30px 0
@@ -67,9 +71,31 @@ section#search-top
 
 @import "../components/pagination.sass"
 
+#search-form-info
+  margin-bottom: 40px
+  h1.form-title
+    font-weight: $medium
+
+#search-form-content
+  +wrap()
+  .text-control
+    +col()
+    +col(1, 2)
+  .textdesc-control
+    +col()
+    +col(1, 1)
+  .text
+    box-shadow: none
+    border-bottom: 1px solid $darkblue
+    border-radius: 0
+  .search-list__item
+    margin-bottom: 0
+
 +responsive(mobile)
   section#search-top
     overflow: scroll
-    form#search-form
-      .select-boxes
-        .select-control
+  #search-form-content
+    +wrap()
+    .text-control
+      +col()
+      +col(1, 1)

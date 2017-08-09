@@ -1,0 +1,58 @@
+extends ./layouts/main.pug
+
+block append styles
+  link(href="assets/styles/pages/contact.min.css", rel="stylesheet")
+
+block append scripts
+  script(src="assets/scripts/pages/contact.min.js")
+
+
+block banner
+  section#banner(style="background-image: url(assets/images/banner.jpg)")
+    .container
+      #banner-content
+        h1#page-title  CONTACT
+        nav#breadcrumb
+          ul
+            li
+              a(href="index.html") HOME
+            li
+              i.icon.icon-chevron-right
+            li.active
+              a(href="#") CONTACT
+
+
+block content
+  section#search-top
+   .container
+      form#search-form
+        .select-boxes
+          .select-control
+            select.select(multiple= true, placeholder="Select Country")
+              option(selected=true) Turkey
+              option Germany
+              option Russia
+          .select-control
+            select.select(multiple= true, placeholder="Select City")
+              optgroup(label="Türkiye")
+                option(selected=true)  İstanbul
+                option Ankara
+  #page-content
+    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6353271.38165767!2d30.752255346787692!3d38.965482524237586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b0155c964f2671%3A0x40d9dbd42a625f2a!2zVMO8cmtpeWU!5e0!3m2!1str!2str!4v1502243602151",
+        width="100%", height="100%", frameborder="0", style="border:0", allowfullscreen)
+    .container
+      form
+        #contact-form-info
+          h1.form-title CONTACT
+          p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, optio.
+        #contact-form-content
+          .text-control
+            input(type="text", placeholder="Name").text
+          .text-control
+            input(type="text", placeholder="Surname").text
+          .text-control
+            input(type="tel", placeholder="Phone").text
+          .text-control
+            input(type="email", placeholder="Mail").text
+          .textdesc-control
+            textarea(placeholder="Description").text
