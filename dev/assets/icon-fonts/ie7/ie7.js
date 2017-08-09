@@ -10,18 +10,33 @@
 (function() {
 	function addIcon(el, entity) {
 		var html = el.innerHTML;
-		el.innerHTML = '<span style="font-family: \'container\'">' + entity + '</span>' + html;
+		el.innerHTML = '<span style="font-family: \'konteyner\'">' + entity + '</span>' + html;
 	}
 	var icons = {
-		'icon-movie_creation': '&#xe906;',
+		'icon-brand': '&#xe907;',
+		'icon-gmail': '&#xe907;',
+		'icon-caret-up': '&#xe908;',
+		'icon-caret-down': '&#xe909;',
 		'icon-close': '&#xe900;',
 		'icon-remove': '&#xe900;',
 		'icon-times': '&#xe900;',
+		'icon-movie_creation': '&#xe906;',
 		'icon-package': '&#xe901;',
 		'icon-info': '&#xe902;',
 		'icon-chevron-right': '&#xe903;',
 		'icon-chevron-left': '&#xe904;',
 		'icon-search': '&#xe905;',
+		'icon-office': '&#xe90a;',
+		'icon-images': '&#xe90e;',
+		'icon-phone': '&#xe942;',
+		'icon-location2': '&#xe948;',
+		'icon-mobile': '&#xe958;',
+		'icon-google-plus': '&#xea8b;',
+		'icon-facebook': '&#xea90;',
+		'icon-instagram': '&#xea92;',
+		'icon-twitter': '&#xea96;',
+		'icon-youtube': '&#xea9d;',
+		'icon-vimeo': '&#xeaa0;',
 		'0': 0
 		},
 		els = document.getElementsByTagName('*'),
