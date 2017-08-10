@@ -3,7 +3,7 @@
 
 @import "../fonts/font.css"
 @import "../../lib/flexiblegs-sass/flexiblegs-sass.sass"
-@import "../icon-fonts/fonts.css"
+@import "../icon-fonts/iconfont.css"
 
 *
   margin: 0
@@ -22,7 +22,7 @@ html, body
   &.active
     overflow: hidden
 
-@import "partial/header/header.sass"
+@import "partial/header/header2.sass"
 
 .container
   width: $lg-width
@@ -53,6 +53,12 @@ a
 
 ul
   list-style: none
+
+.left
+  float: left
+
+.right
+  float: right
 
 +responsive(laptop)
   .container

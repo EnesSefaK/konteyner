@@ -92,10 +92,33 @@ section#search-top
     margin-bottom: 0
 
 +responsive(mobile)
+
   section#search-top
-    overflow: scroll
+    form#search-form
+      .select-boxes
+        display: block
+        .select-control
+          display: block
+          + .select-control
+            padding-left: 0
+            margin-top: 20px
+
   #search-form-content
     +wrap()
     .text-control
       +col()
       +col(1, 1)
+  .search-list
+    &__item
+      +wrap
+      +wrap("middle")
+      figure
+        +col
+        +col(1, 1)
+      .search-list-info
+        +col
+        +col(1, 1)
+        padding: 30px
+      .search-list-action
+        +col
+        +col(1, 1)

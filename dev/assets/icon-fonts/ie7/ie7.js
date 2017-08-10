@@ -13,6 +13,7 @@
 		el.innerHTML = '<span style="font-family: \'konteyner\'">' + entity + '</span>' + html;
 	}
 	var icons = {
+		'icon-menu': '&#xe90b;',
 		'icon-brand': '&#xe907;',
 		'icon-gmail': '&#xe907;',
 		'icon-caret-up': '&#xe908;',
@@ -21,6 +22,8 @@
 		'icon-remove': '&#xe900;',
 		'icon-times': '&#xe900;',
 		'icon-movie_creation': '&#xe906;',
+		'icon-info': '&#xe902;',
+		'icon-chevron-right': '&#xe903;',
 		'icon-package': '&#xe901;',
 		'icon-info': '&#xe902;',
 		'icon-chevron-right': '&#xe903;',
@@ -31,6 +34,9 @@
 		'icon-phone': '&#xe942;',
 		'icon-location2': '&#xe948;',
 		'icon-mobile': '&#xe958;',
+		'icon-list2': '&#xe9bb;',
+		'icon-checkbox-checked': '&#xea52;',
+		'icon-checkbox-unchecked': '&#xea53;',
 		'icon-google-plus': '&#xea8b;',
 		'icon-facebook': '&#xea90;',
 		'icon-instagram': '&#xea92;',

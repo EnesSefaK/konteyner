@@ -46,32 +46,20 @@
                 &:checked
                   + label
                     &:before
-                      content: "\e908"
+                      content: "\ea52"
+                      color: $blue
               label
                 position: relative
                 font-weight: $light
                 &:before
-                  content: ""
+                  content: "\ea53"
                   position: absolute
-                  left: -30px
+                  left: -25px
                   top: 50%
-                  margin-top: -10px
-                  width: 20px
-                  height: 20px
-                  background-color: #fff
-                  color: $blue
-                  border-radius: 2.5px
-                  border: 1px solid #e6e6e6
-                  font-family: 'container' !important
-                  speak: none
-                  font-style: normal
-                  font-weight: normal
-                  font-variant: normal
-                  text-transform: none
-                  line-height: 20px
-                  text-align: center
-                  -webkit-font-smoothing: antialiased
-                  -moz-osx-font-smoothing: grayscale
+                  margin-top: -8px
+                  color: #333
+                  font-size: 15px
+                  +icon()
             span
               float: right
               background-color: $blue
@@ -97,3 +85,14 @@
       .page-info
         font-weight: $light
         float: right
+
++responsive(mobile)
+  #page-side-content
+    +wrap
+    +wrap("gutter", 0)
+    aside#aside
+      +col
+      +col(1, 1)
+    section#content
+      +col
+      +col(1, 1)

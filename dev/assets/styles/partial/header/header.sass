@@ -15,6 +15,40 @@ header#header
       text-transform: uppercase
       img
         border: none
+    #mobilenav-btn
+      background-color: transparent
+      border: none
+      display: none
+      float: right
+      &.active
+        position: relative
+        left: -20px
+        top: 5px
+        span
+          position: absolute
+          left: 0
+          margin: 0
+          &:nth-child(1)
+            transform: rotate(90deg)
+            top: 5px
+            left: -3px
+          &:nth-child(2)
+            transform: rotate(45deg)
+            top: 10px
+            left: -10px
+          &:nth-child(3)
+            transform: rotate(-45deg)
+            top: 10px
+            left: 4px
+      &:focus
+        outline: none
+      span
+        display: block
+        width: 20px
+        height: 2px
+        background-color: #ddd
+        margin-bottom: 5px
+        transition: transform .4s ease-in-out
     #nav
       float: right
       ul
@@ -48,6 +82,7 @@ header#header
               @include scaleY(0)
 +responsive(mobile)
   header#header
+    position: static
     padding: 20px 0
     background: rgba(90,187,229,1)
     background: -moz-linear-gradient(-45deg, rgba(90,187,229,1) 0%, rgba(43,107,168,1) 100%)
@@ -59,4 +94,20 @@ header#header
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5abbe5', endColorstr='#2b6ba8', GradientType=1 )
     #navbar
       #nav
-        display: none
+        float: none
+        height: 0
+        opacity: 0
+        transition: all .3s ease-in-out
+        ul
+          li
+            float: none
+            margin-left: 18px
+            a
+              &:after
+                bottom: -10px
+      #mobilenav-btn
+        display: block
+        &.active
+          + #nav
+            height: auto
+            opacity: 1
