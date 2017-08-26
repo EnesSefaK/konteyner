@@ -5,6 +5,8 @@ app/
 app/*
 dev/lib
 dev/lib/*
+.history
+.history/*
 ### Node ###
 # Logs
 logs

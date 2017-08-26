@@ -1,0 +1,20 @@
+@import "../../dev/variables.sass"
+@import "../../dev/mixins.sass"
+
+$height: 58px
+
+footer#footer
+  background-color: $primarycolor
+  height: $height
+  ul
+    li
+      float: left
+      &:after
+        content: ""
+        +clearfix()
+      a
+        display: block
+        height: $height
+        line-height: $height
+        color: #fff
+        font-size: 12px

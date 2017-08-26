@@ -1,20 +1,40 @@
 header#header
   #header-top
     .container
-      .language.dropdown.open
-        a.dropdown-toggle(data-toggle='dropdown', href='#', aria-expanded='true')
-          img(src='/Content/images/flag-en.jpg', alt='Image')
+      .language
+        a(href="#")
+          img(src='/assets/images/flag-en.jpg', alt='Image')
           | Language
         ul.dropdown-menu(role='menu')
           li
             a(href='#') ENGLISH
           li
             a(href='#') TÜRKÇE
-
+      .right
+        ul
+          li
+            a
+              i.icon.icon-phone
+              | +90 999 999 99
   #header-middle
     .container
-      a#brand
-        img(src="assets/images/logo.png", alt="Logo Alanı")
+      .wrap
+        a#brand.col
+          img(src="assets/images/logo.png", alt="Logo Alanı")
+        .icon-block.col
+          i.icon.icon-network
+          h6.info OPENING HOURS
+            span MON-FRI 07:00 - 18:00
+        .icon-block.col
+          i.icon.icon-location
+          h6.info OUR LOCATION
+            span TURKEY - ISTANBUL
+        .icon-block.col
+          i.icon.icon-bubbles
+          h6.info QUICK SUPPORT
+            span INFO@SITE.COM
+      button#mobilenav
+        i.icon.icon-menu
   #header-nav
     .container
       #navbar
@@ -33,7 +53,7 @@ header#header
           nav#iconbar
             ul
               li
-                a
+                a.asidesearchbtn
                   i.icon.icon-menu
               li
                 a

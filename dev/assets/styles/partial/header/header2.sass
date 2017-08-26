@@ -1,10 +1,93 @@
 @import "../../dev/mixins.sass"
 @import "../../dev/variables.sass"
+@import "../../../../lib/flexiblegs-sass/flexiblegs-sass.sass"
+
+#mobilenav
+  border: none
+  display: none
+  background-color: transparent
+  font-size: 40px
+  color: $primarycolor
+  position: absolute
+  right: 20px
+  bottom: 50px
+  transition: color .3s ease-in-out
+  &:focus
+    outline: none
+  &.active, &:hover
+    color: $yellow
 
 header#header
   #header-top
     background-color: $yellow
+    ul
+      li
+        a
+          height: 34px
+          line-height: 34px
+          color: $primarycolor
+          font-size: 12px
+    .language
+      display: inline-block
+      position: relative
+      &:hover
+        > ul.dropdown-menu
+          display: block
+      a
+        height: 34px
+        line-height: 34px
+        font-size: 14px
+        color: $primarycolor
+        img
+          margin-right: 5px
+      > ul.dropdown-menu
+        position: absolute
+        top: 100%
+        left: 0
+        display: none
+        li
+          a
+            display: block
+            padding: 0 20px
+            color: #fff
+            font-size: 12px
+            background-color: $primarycolor
+            &:hover
+              background-color: #fff
+              color: $primarycolor
   #header-middle
+    padding: 30px 0
+    position: relative
+    #brand
+      img
+        max-height: 90px
+    .wrap
+      +wrap()
+      +wrap(4)
+      +wrap("middle")
+      .col
+        +col()
+        &.icon-block
+          > .icon
+            width: 44px
+            height: 44px
+            line-height: 44px
+            text-align: center
+            margin-right: 10px
+            font-size: 24px
+            color: #fff
+            float: left
+            background-color: $primarycolor
+          .info
+            color: $primarycolor
+            margin-top: 4px
+            line-height: 16px
+            font-family: $font-family
+            font-weight: $bold
+            float: left
+            span
+              display: block
+              color: $yellow
   #header-nav
     #navbar
       background-color: $primarycolor
@@ -12,11 +95,11 @@ header#header
         content: ""
         +clearfix()
       ul
+        &:after
+          content: ""
+          +clearfix()
         li
           float: left
-          &:after
-            content: ""
-            +clearfix()
           a
             height: 60px
             line-height: 60px
@@ -28,15 +111,26 @@ header#header
                 content: ""
                 width: 100%
                 height: 2px
-                background-color: #fff
+                background-color: $yellow
+                +scaleY(0)
                 position: absolute
                 left: 0
-                top: 0
+                top: -2px
+                transition: transform .3s ease-in-out
+              &:hover
+                &:after
+                  +scaleY(1)
+                a
+                  color: $yellow
+              &.active
+                a
+                  color: $yellow
               a
                 color: #fff
                 font-size: 15px
                 padding: 0 20px
                 font-weight: $bold
+                transition: color .3s ease-in-out
       nav#iconbar
         float: left
         > ul
@@ -48,6 +142,8 @@ header#header
                 background-color: darken($primarycolor, 7%)
       nav#socialbox
         float: left
+        background-color: darken($primarycolor, 17%)
+        padding: 0 10px
         > ul
             li
               a
@@ -55,4 +151,28 @@ header#header
                 font-size: 15px
                 display: block
                 padding: 0 10px
-                background-color: darken($primarycolor, 17%)
+
++responsive(mobile)
+  #mobilenav
+    display: block
+  header#header
+    #header-middle
+      .wrap
+        .col
+          display: none
+        #brand
+          display: block
+    #header-nav
+      margin-bottom: 20px
+      display: none
+      #navbar
+        .left, .right
+          float: none
+        #nav
+          ul
+            li
+              float: none
+        nav#iconbar
+          float: left
+        nav#socialbox
+          float: left

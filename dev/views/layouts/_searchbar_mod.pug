@@ -1,0 +1,31 @@
+aside#searchaside
+  button(type="button")#asideclosebtn.asidesearchbtn
+    i.icon.icon-close
+  form(action="searchcontainer.html", method="GET")
+    h1.form-title FIND CONTAINERS
+    p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, provident.
+    .select-boxes
+      .select-control
+        select.select(multiple= true, placeholder="Select Country", name="county")
+          option Turkey
+          option Germany
+          option Russia
+      .select-control
+        select.select(multiple= true, placeholder="Select City", name="city")
+          optgroup(label="Türkiye")
+            option İstanbul
+            option Ankara
+      .select-control
+        select.select(multiple= true, placeholder="Select Depot", name="depot")
+          optgroup(label="İstanbul")
+            option Depot1
+            option Depot2
+            option Depot3
+      .select-control
+        select.select(multiple= true, placeholder="Select Container Type", name="type")
+          option Type1
+          option Type2
+          option Type3
+    button.button(type="submit") 
+      i.icon.icon-search
+      |FIND CONTAINERS
