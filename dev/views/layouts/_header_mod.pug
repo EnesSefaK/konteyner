@@ -1,19 +1,26 @@
 header#header
   .container
     #navbar
-      a#brand
+      a#brand(href="index.html")
         img(src="assets/images/logo.png", alt="Logo Alanı")
-      button(type="button")#mobilenav-btn
-        span
-        span
-        span
-      nav#nav
+      button#mobilenav
+        i.icon.icon-menu
+      nav#header-nav
         ul
-          li.active
-            a(href="index.html") HOME
           li
             a(href="about.html") ABOUT US
           li
-            a(href="searchcontainer.html") FIND CONTAINER
-          li
             a(href="contact.html") CONTACT US
+        ul#socialbox
+          li
+            a
+              i.icon.icon-facebook
+          li
+            a
+              i.icon.icon-twitter
+          li
+            a
+              i.icon.icon-instagram
+          li
+            a
+              i.icon.icon-google-plus

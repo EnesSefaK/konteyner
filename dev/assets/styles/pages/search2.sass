@@ -16,7 +16,6 @@ section#search-top
     .select-boxes
       display: table
       width: 100%
-      table-layout: fixed
       .select-control
         display: table-cell
         vertical-align: middle
@@ -29,32 +28,6 @@ section#search-top
     padding: 10px 0
     margin-bottom: 14px
     box-shadow: 0 1px 2px 0 rgba(61,61,61,0.07)
-    cursor: pointer
-    position: relative
-    &:before
-      content: ""
-      position: absolute
-      left: -5px
-      top: -2px
-      width: 1px
-      height: 100%
-      +transition(width .5s ease-in-out, opacity .5s ease-in-out)
-      z-index: -1
-      background-color: $green
-      padding: 2px
-      opacity: .2
-    &.selected
-      &:hover
-        &:before
-          opacity: .2
-      &:before
-        width: 100%
-        left: -2px
-        opacity: 1
-      .search-list-action
-        .select-button
-          .icon
-            opacity: 1
     +wrap
     +wrap("middle")
     figure
@@ -69,31 +42,29 @@ section#search-top
         display: none
     .search-list-info
       +col
-      +col(7, 12)
+      +col(6, 12)
       font-weight: $regular
       line-height: 1.85714em
-      .product-number
+      .product-name
         font-size: 16px
         +tracking(40)
         color: #262626
         font-weight: $regular
       .product-location
         font-size: 16px
-        color: #262626
-      .product-year
+        color: #B3B3B3
+      .product-stock
         font-size: 16px
         color: #262626
     .search-list-action
       +col
-      +col(2, 12)
-      .select-button
+      +col(3, 12)
+      .button
         float: right
         margin-right: 20px
-        .icon
-          font-size: 50px
-          color: $green
-          opacity: .1
-          +transition(opacity .6s ease-in-out)
+        &:hover
+          background-color: darken($primarycolor, 10%)
+          color: #fff
     #search-form
       +col
       +col(1, 1)
@@ -103,25 +74,22 @@ section#search-top
 @import "../components/pagination.sass"
 
 #search-form-info
-  margin-bottom: 10px
+  margin-bottom: 40px
   h1.form-title
     font-weight: $medium
-    i.icon
-      color: $purple
-      font-size: 18px
-      vertical-align: top
-      margin-left: 5px
-  p.form-note
-    margin-top: 10px
 
 #search-form-content
   +wrap()
   .text-control
     +col()
-    +col(1, 1)
+    +col(1, 2)
   .textdesc-control
     +col()
     +col(1, 1)
+  .text
+    box-shadow: none
+    border-bottom: 1px solid $darkblue
+    border-radius: 0
   .search-list__item
     margin-bottom: 0
 

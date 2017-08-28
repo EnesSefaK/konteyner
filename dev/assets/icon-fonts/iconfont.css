@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'konteyner';
-  src:  url('fonts/konteyner.eot?5txq16');
-  src:  url('fonts/konteyner.eot?5txq16#iefix') format('embedded-opentype'),
-    url('fonts/konteyner.ttf?5txq16') format('truetype'),
-    url('fonts/konteyner.woff?5txq16') format('woff'),
-    url('fonts/konteyner.svg?5txq16#konteyner') format('svg');
+  src:  url('fonts/konteyner.eot?ponqqb');
+  src:  url('fonts/konteyner.eot?ponqqb#iefix') format('embedded-opentype'),
+    url('fonts/konteyner.ttf?ponqqb') format('truetype'),
+    url('fonts/konteyner.woff?ponqqb') format('woff'),
+    url('fonts/konteyner.svg?ponqqb#konteyner') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-fax:before {
+  content: "\e90d";
+}
+.icon-check:before {
+  content: "\e90c";
+}
+.icon-movie_creation:before {
+  content: "\e906";
+}
 .icon-brand:before {
   content: "\e907";
   color: #d14836;
@@ -31,9 +40,6 @@
 .icon-gmail:before {
   content: "\e907";
   color: #d14836;
-}
-.icon-movie_creation:before {
-  content: "\e906";
 }
 .icon-menu:before {
   content: "\e90b";

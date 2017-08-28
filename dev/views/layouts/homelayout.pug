@@ -12,13 +12,11 @@ head
     link(rel="stylesheet", href="assets/lib/styles/lib.min.css")
     link(rel="stylesheet", href="assets/styles/app.min.css")
 body
-  #page-wrapper
-    block header
-      include _header_mod2.pug
+  section#full-wrapper
     block banner
-    block content
-  include _searchbar_mod.pug
-  include _footer_mod.pug
+      include _header_mod.pug
+  block content
   block scripts
     script(src="assets/lib/scripts/lib.min.js")
     script(src="assets/scripts/app.min.js")
+  div#after-remove

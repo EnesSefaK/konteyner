@@ -1,3 +1,4 @@
+$xl-width: 1600px
 $lg-width: 1200px
 $md-width: 992px
 $sm-width: 768px
@@ -5,7 +6,10 @@ $xs-width: 480px
 $iphone-retina: 320px
 
 =responsive($point) 
-  @if $point == desktop 
+  @if $point == large 
+    @media only screen and (max-width : $xl-width)
+      @content  
+  @else if $point == desktop 
     @media only screen and (max-width : $lg-width)
       @content  
   @else if $point == laptop 

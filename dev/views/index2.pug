@@ -1,19 +1,17 @@
-extends ./layouts/main.pug
+extends ./layouts/subpagelayout.pug
 
 block append styles
-  link(href="assets/styles/pages/home.min.css", rel="stylesheet")
+  link(href="assets/styles/pages/home2.min.css", rel="stylesheet")
 
 block append scripts
-  script(src="assets/scripts/pages/home.min.js")
+  script(src="assets/scripts/pages/home2.min.js")
 
 block banner
-  section#full-slider
-    div#slider-effect1
-    div#slider-effect2
+  section#full-slider(style="background-image: url(assets/images/slider/slide.jpg)")
     .container
       form#search-form(action="searchcontainer.html", method="GET")
         h1.form-title FIND CONTAINERS
-        p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, provident.
+        p.form-note  Check your delivery easily & quickly
         .select-boxes
           .select-control
             select.select(multiple= true, placeholder="Select Country", name="county")
@@ -39,4 +37,36 @@ block banner
         button.button(type="submit") 
           i.icon.icon-search
           |FIND CONTAINERS
-      img#slider-img(src="assets/images/slider/slider-img.png", alt="slideimg")
+
+block content
+  #page-content
+    .container
+      .wrap
+        article.article.col
+          h1.title  Lorem ipsum dolor sit amet.
+          p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, repellendus!
+          ul.list
+            li  Lorem ipsum dolor sit amet.
+            li  Lorem ipsum dolor sit amet.
+            li  Lorem ipsum dolor sit amet.
+        .col
+          .img-box
+            figure
+              img(src="http://enessefak-001-site1.itempurl.com/Content/images/icon01.png", alt="alt")
+              figcaption SEA SHIPPING
+            .desc
+              p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, veniam.
+        .col
+          .img-box
+            figure
+              img(src="http://enessefak-001-site1.itempurl.com/Content/images/icon02.png", alt="alt")
+              figcaption SEA SHIPPING
+            .desc
+              p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, veniam.
+        .col
+          .img-box
+            figure
+              img(src="http://enessefak-001-site1.itempurl.com/Content/images/icon03.png", alt="alt")
+              figcaption SEA SHIPPING
+            .desc
+              p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, veniam.

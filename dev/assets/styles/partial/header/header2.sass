@@ -15,11 +15,11 @@
   &:focus
     outline: none
   &.active, &:hover
-    color: $yellow
+    color: $purple
 
 header#header
   #header-top
-    background-color: $yellow
+    background-color: $header-top-bg
     ul
       li
         a
@@ -30,6 +30,7 @@ header#header
     .language
       display: inline-block
       position: relative
+      z-index: 9
       &:hover
         > ul.dropdown-menu
           display: block
@@ -67,27 +68,6 @@ header#header
       +wrap("middle")
       .col
         +col()
-        &.icon-block
-          > .icon
-            width: 44px
-            height: 44px
-            line-height: 44px
-            text-align: center
-            margin-right: 10px
-            font-size: 24px
-            color: #fff
-            float: left
-            background-color: $primarycolor
-          .info
-            color: $primarycolor
-            margin-top: 4px
-            line-height: 16px
-            font-family: $font-family
-            font-weight: $bold
-            float: left
-            span
-              display: block
-              color: $yellow
   #header-nav
     #navbar
       background-color: $primarycolor
@@ -111,7 +91,7 @@ header#header
                 content: ""
                 width: 100%
                 height: 2px
-                background-color: $yellow
+                background-color: $purple
                 +scaleY(0)
                 position: absolute
                 left: 0
@@ -121,15 +101,15 @@ header#header
                 &:after
                   +scaleY(1)
                 a
-                  color: $yellow
+                  color: $purple
               &.active
                 a
-                  color: $yellow
+                  color: $purple
               a
                 color: #fff
                 font-size: 15px
                 padding: 0 20px
-                font-weight: $bold
+                font-weight: 400
                 transition: color .3s ease-in-out
       nav#iconbar
         float: left

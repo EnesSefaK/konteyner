@@ -1,64 +1,26 @@
-const button = document.querySelectorAll(".search-list-button"),
-  popup = document.getElementById("popup"),
-  popupContent = document.getElementById("popup-content"),
-  content = document.getElementById("search-form-content");
-
-TweenMax.set(popupContent, {
-  transformOrigin: "50% 50%",
-  scale: 0,
-  alpha: 0
-});
-
-for (let i = 0; i < button.length; i++) {
-  button[i]
-    .addEventListener("click", function (event) {
-      event.preventDefault();
-      const span = button[i].getElementsByTagName("span");
-      TweenMax.staggerFromTo(span, .9, {
-        scale: 0,
-        alpha: 1
-      }, {
-        scale: 250,
-        yoyo: true,
-        alpha: 0
-      }, .2, eventReturn);
-
-      function eventReturn() {
-        const konteyner = document.getElementById("searchListItem" + i);
-        button[i].innerText = "SEND";
-        content.insertBefore(konteyner, content.firstChild);
-        popup.className += " active";
-        const popupContentHeight = popupContent.offsetHeight,
-          popupContentWidth = popupContent.offsetWidth + popupContent.offsetLeft,
-          popupContentAverageHeight = popupContentHeight / 2,
-          popupContentAverageWidth = popupContentWidth / 2;
-        popupContent.style.marginTop = -popupContentAverageHeight + "px";
-        popupContent.style.marginLeft = -popupContentAverageWidth + "px";
-
-        TweenMax.to(popupContent, 1, {
-          scale: 1,
-          yoyo: true,
-          alpha: 1
-        });
-
-        document.getElementById("popup-close").addEventListener("click", function () {
-          const searchList = document.getElementById("search-list"),
-            insertBeforeElem = document.getElementById("searchListItem" + (i + 1));
-          searchList.insertBefore(konteyner, searchList.insertBeforeElem);
-          TweenMax.to(popupContent, 1, {
-            scale: 0,
-            yoyo: true,
-            alpha: 0,
-            onComplete: closePopup
-          });
-
-          function closePopup() {
-            button[i].innerText = "CONTACT US";
-            popup.className -= " active";
-          }
-        });
-
-      }
-
-    });
+var selectedCount = document.querySelectorAll(".selected").length,
+removeInfo = document.getElementById("remove-info"),
+selectedInfo = document.getElementById("selected-info");
+function selected(e, product){
+  var classList = product.classList;
+  classList.contains("selected") ? classList.remove("selected") : classList.add("selected");
+  selectedCount = document.querySelectorAll(".selected").length;
+  selectedCount == 0 ? removeInfo.style.display = "block" : removeInfo.style.display = "none";
+  selectedInfo.innerText = 'Number of Selected Containers '+ selectedCount;
+}
+function containerRequest(e, form){
+  if(selectedCount != 0){
+    var name = form["name"].value;
+    var surname = form["surname"].value;
+    var phone = form["phone"].value;
+    var email = form["email"].value;
+    var desc = form["desc"].value;
+    removeInfo.style.display = "block";
+    removeInfo.style.color = "#000";
+    removeInfo.innerText = "Success";
+  }
+  else{
+    removeInfo.style.color = "red";
+  }
+  e.preventDefault();
 }

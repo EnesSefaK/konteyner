@@ -1,0 +1,164 @@
+extends ./layouts/subpagelayout.pug
+
+block append styles
+  link(href="assets/styles/pages/search2.min.css", rel="stylesheet")
+
+block append scripts
+  script(src="assets/scripts/pages/search2.min.js")
+
+block banner
+  section#banner(style="background-image: url(assets/images/banner.jpg)")
+    .container
+      #banner-content
+        h1#page-title  SEARCH CONTAINERS
+        nav#breadcrumb
+          ul
+            li
+              a(href="index.html") HOME
+            li
+              i.icon.icon-chevron-right
+            li.active
+              a(href="#") SEARCH
+
+block content
+  section#search-top
+   .container
+      form#search-form
+        .select-boxes
+          .select-control
+            select.select(multiple= true, placeholder="Select Country")
+              option(selected=true) Turkey
+              option Germany
+              option Russia
+          .select-control
+            select.select(multiple= true, placeholder="Select City")
+              optgroup(label="Türkiye")
+                option(selected=true)  İstanbul
+                option Ankara
+          .select-control
+            select.select(multiple= true, placeholder="Select Depot")
+              optgroup(label="İstanbul")
+                option(selected=true)  Depot1
+                option(selected=true)  Depot2
+                option Depot3
+          .select-control
+            select.select(multiple= true, placeholder="Select Container Type")
+              option(selected=true)  Type1
+              option Type2
+              option Type3
+  .container
+    #page-side-content
+      aside#aside
+        section.aside-widget
+          header
+            h3.aside-title Sizes
+            .icon.icon-info
+          .form
+            ul
+              li
+                .label
+                  input(type="checkbox", name="size")#size1
+                  label(for="size1") Size1
+                span 2
+              li
+                .label
+                  input(type="checkbox", name="size")#size2
+                  label(for="size2") Size2
+                span 8
+              li
+                .label
+                  input(type="checkbox", name="size")#size3
+                  label(for="size3") Size3
+                span 5
+        section.aside-widget
+          header
+            h3.aside-title Types
+            .icon.icon-info
+          .form
+            ul
+              li
+                .label
+                  input(type="checkbox", name="type")#type1
+                  label(for="type1") Type1
+                span 2
+              li
+                .label
+                  input(type="checkbox", name="type")#type2
+                  label(for="type2") Type2
+                span 8
+              li
+                .label
+                  input(type="checkbox", name="type")#type3
+                  label(for="type3") Type3
+                span 5
+      section#content
+        header
+          h3.result-info Search Result 
+            strong 3 
+            | Items
+          span.page-info  Page 
+            strong 2 
+            | / 3
+        .search-list#search-list
+          -
+            containerImg = [
+              "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_high_cube_dry.png",
+              "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_flat_rack.png",
+              "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_open_top.png",
+              "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_high_cube_reefer.png",
+              "https://maersklinecontainersales.com/assets/images/productdetails/20_foot_reefer.png",
+              "https://maersklinecontainersales.com/assets/images/productdetails/45_foot_high_cube_dry.png"
+            ]
+          for item, i in containerImg
+            - _id = "searchListItem"+i;
+            .search-list__item(id= _id)
+              figure
+                img(src= item, alt="alt")
+                figcaption Product İnfo
+              .search-list-info
+                h2.product-name Product Name
+                p.product-location Konum
+                p.product-stock Stock: 
+                  span 62
+              .search-list-action
+                a.button.search-list-button
+                  | CONTACT US
+                  span
+                  span               
+        footer
+          #pagination
+            nav
+              a(rel="prev")
+                i.icon.icon-chevron-left
+                | PREVIOUS
+              ul
+                li
+                  a 1
+                li.active
+                  a 2
+                li
+                  a 3
+              a(rel="next")
+                | NEXT
+                i.icon.icon-chevron-right
+  #popup
+    .container
+      button.button#popup-close
+        i.icon.icon-close
+      #popup-content
+        #search-form
+          form
+            #search-form-info
+              h1.form-title CONTACT
+              p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, optio.
+            #search-form-content
+              .text-control
+                input(type="text", placeholder="Name").text
+              .text-control
+                input(type="text", placeholder="Surname").text
+              .text-control
+                input(type="tel", placeholder="Phone").text
+              .text-control
+                input(type="email", placeholder="Mail").text
+              .textdesc-control
+                textarea(placeholder="Description").text

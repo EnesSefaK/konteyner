@@ -1,17 +1,16 @@
-extends ./layouts/main.pug
+extends ./layouts/homelayout.pug
 
 block append styles
-  link(href="assets/styles/pages/home2.min.css", rel="stylesheet")
+  link(href="assets/styles/pages/home.min.css", rel="stylesheet")
 
 block append scripts
-  script(src="assets/scripts/pages/home2.min.js")
-
-block banner
-  section#full-slider(style="background-image: url(assets/images/slider/slide.jpg)")
-    .container
+  script(src="assets/scripts/pages/home.min.js")
+block append banner
+  section#full-slider
+    .container#search-form-container
       form#search-form(action="searchcontainer.html", method="GET")
-        h1.form-title FIND CONTAINERS
-        p.form-note  Check your delivery easily & quickly
+        h1.form-title Find Your Shipper’s Own Container Easily
+        //p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, provident.
         .select-boxes
           .select-control
             select.select(multiple= true, placeholder="Select Country", name="county")
@@ -24,49 +23,22 @@ block banner
                 option İstanbul
                 option Ankara
           .select-control
-            select.select(multiple= true, placeholder="Select Depot", name="depot")
-              optgroup(label="İstanbul")
-                option Depot1
-                option Depot2
-                option Depot3
-          .select-control
             select.select(multiple= true, placeholder="Select Container Type", name="type")
               option Type1
               option Type2
               option Type3
+          .select-control
+            select.select(multiple= true, placeholder="Sizes", name="sizes")
+              option Size1
+              option Size2
+              option Size3
         button.button(type="submit") 
           i.icon.icon-search
           |FIND CONTAINERS
-
 block content
-  #page-content
-    .container
-      .wrap
-        article.article.col
-          h1.title  Lorem ipsum dolor sit amet.
-          p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, repellendus!
-          ul.list
-            li  Lorem ipsum dolor sit amet.
-            li  Lorem ipsum dolor sit amet.
-            li  Lorem ipsum dolor sit amet.
-        .col
-          .img-box
-            figure
-              img(src="http://enessefak-001-site1.itempurl.com/Content/images/icon01.png", alt="alt")
-              figcaption SEA SHIPPING
-            .desc
-              p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, veniam.
-        .col
-          .img-box
-            figure
-              img(src="http://enessefak-001-site1.itempurl.com/Content/images/icon02.png", alt="alt")
-              figcaption SEA SHIPPING
-            .desc
-              p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, veniam.
-        .col
-          .img-box
-            figure
-              img(src="http://enessefak-001-site1.itempurl.com/Content/images/icon03.png", alt="alt")
-              figcaption SEA SHIPPING
-            .desc
-              p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, veniam.
+  #effect-wrapper
+    div(style="overflow:hidden;width:100%;height:200px;position:relative")
+      div#slider-effect1
+      div#slider-effect2
+    .container#slider-img-container
+      img#slider-img(src="assets/images/slider/slider-img.png", alt="slideimg")

@@ -13,9 +13,11 @@
 		el.innerHTML = '<span style="font-family: \'konteyner\'">' + entity + '</span>' + html;
 	}
 	var icons = {
+		'icon-fax': '&#xe90d;',
+		'icon-check': '&#xe90c;',
+		'icon-movie_creation': '&#xe906;',
 		'icon-brand': '&#xe907;',
 		'icon-gmail': '&#xe907;',
-		'icon-movie_creation': '&#xe906;',
 		'icon-menu': '&#xe90b;',
 		'icon-package': '&#xe901;',
 		'icon-info': '&#xe902;',

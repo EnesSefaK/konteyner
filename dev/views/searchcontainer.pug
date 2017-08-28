@@ -1,4 +1,4 @@
-extends ./layouts/main.pug
+extends ./layouts/subpagelayout.pug
 
 block append styles
   link(href="assets/styles/pages/search.min.css", rel="stylesheet")
@@ -27,74 +27,55 @@ block content
         .select-boxes
           .select-control
             select.select(multiple= true, placeholder="Select Country")
-              option(selected=true) Turkey
+              option Turkey
               option Germany
               option Russia
           .select-control
             select.select(multiple= true, placeholder="Select City")
               optgroup(label="Türkiye")
-                option(selected=true)  İstanbul
+                option İstanbul
                 option Ankara
           .select-control
-            select.select(multiple= true, placeholder="Select Depot")
-              optgroup(label="İstanbul")
-                option(selected=true)  Depot1
-                option(selected=true)  Depot2
-                option Depot3
-          .select-control
             select.select(multiple= true, placeholder="Select Container Type")
-              option(selected=true)  Type1
+              option Type1
               option Type2
               option Type3
+          .select-control
+            select.select(multiple= true, placeholder="Sizes", name="sizes")
+              option Size1
+              option Size2
+              option Size3
   .container
     #page-side-content
       aside#aside
         section.aside-widget
-          header
-            h3.aside-title Sizes
-            .icon.icon-info
-          .form
-            ul
-              li
-                .label
-                  input(type="checkbox", name="size")#size1
-                  label(for="size1") Size1
-                span 2
-              li
-                .label
-                  input(type="checkbox", name="size")#size2
-                  label(for="size2") Size2
-                span 8
-              li
-                .label
-                  input(type="checkbox", name="size")#size3
-                  label(for="size3") Size3
-                span 5
-        section.aside-widget
-          header
-            h3.aside-title Types
-            .icon.icon-info
-          .form
-            ul
-              li
-                .label
-                  input(type="checkbox", name="type")#type1
-                  label(for="type1") Type1
-                span 2
-              li
-                .label
-                  input(type="checkbox", name="type")#type2
-                  label(for="type2") Type2
-                span 8
-              li
-                .label
-                  input(type="checkbox", name="type")#type3
-                  label(for="type3") Type3
-                span 5
+          #search-form
+            form(onSubmit="containerRequest(event, this)", method="POST", action="#")
+              #search-form-info
+                h1.form-title CONTACT FORM
+                  a(data-tooltip="You will receive an email with your selected container information")
+                    i.icon.icon-info
+                p.form-note
+                  span#remove-info Please select the container you want from the list
+                  span#selected-info
+              #search-form-content
+                .text-control
+                  input(type="text", placeholder="Name", name="name").text
+                .text-control
+                  input(type="text", placeholder="Surname" name="surname").text
+                .text-control
+                  input(type="tel", placeholder="Phone" name="phone").text
+                .text-control
+                  input(type="email", placeholder="Mail", name="email").text
+                .textdesc-control
+                  textarea(placeholder="Description", name="desc").text
+                button.button(type="submit") 
+                  i.icon.icon-bubbles
+                  |REQUEST
       section#content
         header
           h3.result-info Search Result 
-            strong 3 
+            strong  6 
             | Items
           span.page-info  Page 
             strong 2 
@@ -102,29 +83,35 @@ block content
         .search-list#search-list
           -
             containerImg = [
-              "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_high_cube_dry.png",
-              "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_flat_rack.png",
-              "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_open_top.png",
-              "https://maersklinecontainersales.com/assets/images/productdetails/40_foot_high_cube_reefer.png",
-              "https://maersklinecontainersales.com/assets/images/productdetails/20_foot_reefer.png",
-              "https://maersklinecontainersales.com/assets/images/productdetails/45_foot_high_cube_dry.png"
+              "assets/images/konteyner.png",
+              "assets/images/konteyner.png",
+              "assets/images/konteyner.png",
+              "assets/images/konteyner.png",
+              "assets/images/konteyner.png",
+              "assets/images/konteyner.png"
             ]
           for item, i in containerImg
             - _id = "searchListItem"+i;
-            .search-list__item(id= _id)
+            .search-list__item(id= _id, onClick="selected(event, this)")
               figure
                 img(src= item, alt="alt")
                 figcaption Product İnfo
               .search-list-info
-                h2.product-name Product Name
-                p.product-location Konum
-                p.product-stock Stock: 
-                  span 62
+                h2.product-number 
+                  strong Container Number: 
+                  | ABCD 123#{i+1}XXX-X
+                p.product-location
+                  strong Container Location: 
+                  | Turkey / İstanbul
+                p.product-type
+                  strong Container Type: 
+                  | Type#{i+1}
+                p.product-year
+                  strong Year of construction: 
+                  | 201#{i}
               .search-list-action
-                a.button.search-list-button
-                  | CONTACT US
-                  span
-                  span               
+                a.select-button
+                  i.icon.icon-check          
         footer
           #pagination
             nav
@@ -141,24 +128,3 @@ block content
               a(rel="next")
                 | NEXT
                 i.icon.icon-chevron-right
-  #popup
-    .container
-      button.button#popup-close
-        i.icon.icon-close
-      #popup-content
-        #search-form
-          form
-            #search-form-info
-              h1.form-title CONTACT
-              p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, optio.
-            #search-form-content
-              .text-control
-                input(type="text", placeholder="Name").text
-              .text-control
-                input(type="text", placeholder="Surname").text
-              .text-control
-                input(type="tel", placeholder="Phone").text
-              .text-control
-                input(type="email", placeholder="Mail").text
-              .textdesc-control
-                textarea(placeholder="Description").text

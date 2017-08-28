@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  meta(name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge")
+  title Konteyner
+  link(rel="shortcut icon", href="assets/images/favicon.ico", type="image/x-icon")
+  link(rel="icon", href="assets/images/favicon.ico", type="image/x-icon")
+  <!--[if lt IE 9]> script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")  <![endif]-->
+  block styles
+    link(rel="stylesheet", href="assets/lib/styles/lib.min.css")
+    link(rel="stylesheet", href="assets/styles/app.min.css")
+body
+  #page-wrapper
+    block header
+      include _header_mod2.pug
+    block banner
+    block content
+  include _footer_mod.pug
+  block scripts
+    script(src="assets/lib/scripts/lib.min.js")
+    script(src="assets/scripts/app.min.js")
+  div#after-remove

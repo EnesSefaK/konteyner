@@ -1,13 +1,26 @@
 @import "../../dev/mixins.sass"
 @import "../../dev/variables.sass"
 
-header#header
+#mobilenav
+  border: none
+  display: none
+  background-color: transparent
+  font-size: 40px
+  color: $primarycolor
   position: absolute
-  top: 0
-  left: 0
+  right: 20px
+  top: 20px
+  transition: color .3s ease-in-out
+  &:focus
+    outline: none
+  &.active, &:hover
+    color: $purple
+
+header#header
   width: 100%
   padding: 55px 0
   z-index: 99
+  background-color: transparent
   #navbar
     #brand
       font-size: 25px
@@ -15,11 +28,7 @@ header#header
       text-transform: uppercase
       img
         border: none
-    #mobilenav-btn
-      background-color: transparent
-      border: none
-      display: none
-      float: right
+        max-width: 100px
       &.active
         position: relative
         left: -20px
@@ -49,9 +58,28 @@ header#header
         background-color: #ddd
         margin-bottom: 5px
         transition: transform .4s ease-in-out
-    #nav
+    #header-nav
       float: right
+      &:after
+        content: ""
+        +clearfix()
       ul
+        float: left
+        &#socialbox
+          margin-left: 30px
+          li
+            &:hover
+              a
+                .icon
+                  +transition(color .2s ease-in-out)
+                  &.icon-facebook
+                    color: $facebook_color
+                  &.icon-twitter
+                    color: $twitter_color
+                  &.icon-instagram
+                    color: $instagram_color
+                  &.icon-google-plus
+                    color: $google_plus_color
         &:after
           content: ""
           @include clearfix()
@@ -67,7 +95,7 @@ header#header
             font-size: 15px
             color: #fff
             line-height: 35px
-            font-weight: $bold
+            font-weight: 400
             position: relative
             &:after
               content: ""
@@ -80,7 +108,13 @@ header#header
               @include transition(transform .4s ease-in-out)
               @include transform-origin(0)
               @include scaleY(0)
++responsive(large)
+  header#header
+    padding: 30px 0
+
 +responsive(mobile)
+  #mobilenav
+    display: block
   header#header
     position: static
     padding: 20px 0
@@ -93,21 +127,18 @@ header#header
     background: linear-gradient(135deg, rgba(90,187,229,1) 0%, rgba(43,107,168,1) 100%)
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5abbe5', endColorstr='#2b6ba8', GradientType=1 )
     #navbar
-      #nav
+      #header-nav
         float: none
-        height: 0
-        opacity: 0
-        transition: all .3s ease-in-out
+        display: none
         ul
+          float: none
+          &#socialbox
+            margin-left: 0
+            li
+              float: left
           li
             float: none
             margin-left: 18px
             a
               &:after
                 bottom: -10px
-      #mobilenav-btn
-        display: block
-        &.active
-          + #nav
-            height: auto
-            opacity: 1

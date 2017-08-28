@@ -1,4 +1,4 @@
-extends ./layouts/main.pug
+extends ./layouts/subpagelayout.pug
 
 block append styles
   link(href="assets/styles/pages/contact.min.css", rel="stylesheet")
@@ -23,36 +23,50 @@ block banner
 
 
 block content
-  section#search-top
-   .container
-      form#search-form
-        .select-boxes
-          .select-control
-            select.select(multiple= true, placeholder="Select Country")
-              option(selected=true) Turkey
-              option Germany
-              option Russia
-          .select-control
-            select.select(multiple= true, placeholder="Select City")
-              optgroup(label="Türkiye")
-                option(selected=true)  İstanbul
-                option Ankara
-  #page-content
-    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6353271.38165767!2d30.752255346787692!3d38.965482524237586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b0155c964f2671%3A0x40d9dbd42a625f2a!2zVMO8cmtpeWU!5e0!3m2!1str!2str!4v1502243602151",
-        width="100%", height="100%", frameborder="0", style="border:0", allowfullscreen)
-    .container
-      form
-        #contact-form-info
-          h1.form-title CONTACT
-          p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, optio.
-        #contact-form-content
-          .text-control
-            input(type="text", placeholder="Name").text
-          .text-control
-            input(type="text", placeholder="Surname").text
-          .text-control
-            input(type="tel", placeholder="Phone").text
-          .text-control
-            input(type="email", placeholder="Mail").text
-          .textdesc-control
-            textarea(placeholder="Description").text
+  .container
+    #page-side-content
+      aside#aside
+        #contact-form
+          form(onSubmit="containerRequest(event, this)", method="POST", action="#")
+            #search-form-info
+              h1.form-title CONTACT FORM
+                a(data-tooltip="You can contact us for questions and suggestions on this form")
+                  i.icon.icon-info
+              //p.form-note
+                span#remove-info Lütfen listeden istediginiz konteynera tıklayınız.
+                span#selected-info
+            #contact-form-content
+              .text-control
+                input(type="text", placeholder="Name", name="name").text
+              .text-control
+                input(type="text", placeholder="Surname" name="surname").text
+              .text-control
+                input(type="tel", placeholder="Phone" name="phone").text
+              .text-control
+                input(type="email", placeholder="Mail", name="email").text
+              .textdesc-control
+                textarea(placeholder="Description", name="desc").text
+              button.button(type="submit") 
+                i.icon.icon-bubbles
+                |SEND
+      section#content
+        #contact-wrap
+          #contact-info
+            .icon-block.col
+              i.icon.icon-phone
+              h6.info PHONE
+                span +90 999 999 99 99
+            .icon-block.col
+              i.icon.icon-fax
+              h6.info FAX
+                span +90 999 999 99 99
+            .icon-block.col
+              i.icon.icon-bubbles
+              h6.info QUICK SUPPORT
+                span INFO@SITE.COM
+            .icon-block.col
+              i.icon.icon-location
+              h6.info OUR LOCATION
+                span TURKEY - ISTANBUL
+          #map
+            iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6353271.38165767!2d30.752255346787692!3d38.965482524237586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b0155c964f2671%3A0x40d9dbd42a625f2a!2zVMO8cmtpeWU!5e0!3m2!1str!2str!4v1502243602151")
