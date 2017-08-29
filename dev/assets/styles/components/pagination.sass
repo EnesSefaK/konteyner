@@ -6,7 +6,7 @@
   > nav
     background-color: #fff
     margin: 0 auto
-    color: #262626
+    color: $font-color
     text-align: center
     display: inline-block
     margin: 0 auto
@@ -14,12 +14,12 @@
     box-shadow: 0 1px 2px 0 rgba(61,61,61,0.07)
     &:after
       content: ""
-      +clearfix
+      +clearfix()
     a[rel]
       font-weight: $black
       font-size: .875em
       line-height: 27px
-      color: #262626
+      color: $font-color
       &[rel=prev]
         float: left
         border-right: 1px solid #F7F7F7

@@ -33,7 +33,8 @@ block content
           .select-control
             select.select(multiple= true, placeholder="Select City")
               optgroup(label="Türkiye")
-                option İstanbul
+                option İstanbul (ASIA)
+                option İstanbul (EUR)
                 option Ankara
           .select-control
             select.select(multiple= true, placeholder="Select Container Type")
@@ -52,7 +53,7 @@ block content
           #search-form
             form(onSubmit="containerRequest(event, this)", method="POST", action="#")
               #search-form-info
-                h1.form-title CONTACT FORM
+                h1.form-title PURCHASE FORM
                   a(data-tooltip="You will receive an email with your selected container information")
                     i.icon.icon-info
                 p.form-note
@@ -99,16 +100,16 @@ block content
               .search-list-info
                 h2.product-number 
                   strong Container Number: 
-                  | ABCD 123#{i+1}XXX-X
+                  | ABCD 123XXX-X
                 p.product-location
                   strong Container Location: 
-                  | Turkey / İstanbul
+                  | Türkiye/İstanbul (ASIA)
                 p.product-type
                   strong Container Type: 
-                  | Type#{i+1}
+                  | 20
                 p.product-year
-                  strong Year of construction: 
-                  | 201#{i}
+                  strong Year of Manufacture: 
+                  | 2016
               .search-list-action
                 a.select-button
                   i.icon.icon-check          

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'konteyner';
-  src:  url('fonts/konteyner.eot?ponqqb');
-  src:  url('fonts/konteyner.eot?ponqqb#iefix') format('embedded-opentype'),
-    url('fonts/konteyner.ttf?ponqqb') format('truetype'),
-    url('fonts/konteyner.woff?ponqqb') format('woff'),
-    url('fonts/konteyner.svg?ponqqb#konteyner') format('svg');
+  src:  url('fonts/konteyner.eot?5izfni');
+  src:  url('fonts/konteyner.eot?5izfni#iefix') format('embedded-opentype'),
+    url('fonts/konteyner.ttf?5izfni') format('truetype'),
+    url('fonts/konteyner.woff?5izfni') format('woff'),
+    url('fonts/konteyner.svg?5izfni#konteyner') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -33,16 +33,11 @@
 .icon-movie_creation:before {
   content: "\e906";
 }
-.icon-brand:before {
-  content: "\e907";
-  color: #d14836;
-}
-.icon-gmail:before {
-  content: "\e907";
-  color: #d14836;
-}
 .icon-menu:before {
   content: "\e90b";
+}
+.icon-package:before {
+  content: "\e901";
 }
 .icon-package:before {
   content: "\e901";
@@ -121,4 +116,61 @@
 }
 .icon-times:before {
   content: "\e900";
+}
+.icon-office:before {
+  content: "\e90a";
+}
+.icon-images:before {
+  content: "\e90e";
+}
+.icon-phone:before {
+  content: "\e942";
+}
+.icon-location:before {
+  content: "\e948";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-list:before {
+  content: "\e9bb";
+}
+.icon-checkbox-checked:before {
+  content: "\ea52";
+}
+.icon-checkbox-unchecked:before {
+  content: "\ea53";
+}
+.icon-google-plus:before {
+  content: "\ea8b";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-youtube:before {
+  content: "\ea9d";
+}
+.icon-vimeo:before {
+  content: "\eaa0";
+}
+.icon-bubbles:before {
+  content: "\e970";
+}
+.icon-network:before {
+  content: "\e9c9";
+}
+.icon-caret-up:before {
+  content: "\e908";
+}
+.icon-caret-down:before {
+  content: "\e909";
+}
+.icon-linkedin:before {
+  content: "\e90f";
 }
