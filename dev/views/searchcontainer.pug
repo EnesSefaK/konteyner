@@ -26,26 +26,29 @@ block content
       form#search-form
         .select-boxes
           .select-control
-            select.select(multiple= true, placeholder="Select Country")
+            select.select(placeholder="Select Country", name="county")
+              option Select Country
               option Turkey
               option Germany
               option Russia
           .select-control
-            select.select(multiple= true, placeholder="Select City")
+            select.select(placeholder="Select City", name="city")
               optgroup(label="Türkiye")
-                option İstanbul (ASIA)
-                option İstanbul (EUR)
+                option Select City
+                option İstanbul
                 option Ankara
           .select-control
-            select.select(multiple= true, placeholder="Select Container Type")
+            select.select(placeholder="Select Container Type", name="type")
+              option Select Container Type
               option Type1
               option Type2
               option Type3
           .select-control
-            select.select(multiple= true, placeholder="Sizes", name="sizes")
+            select.select(placeholder="Sizes", name="sizes")
+              option Select Sizes
               option Size1
               option Size2
-              option Size3
+              option Size3y
   .container
     #page-side-content
       aside#aside
@@ -84,12 +87,12 @@ block content
         .search-list#search-list
           -
             containerImg = [
-              "assets/images/konteyner.png",
-              "assets/images/konteyner.png",
-              "assets/images/konteyner.png",
-              "assets/images/konteyner.png",
-              "assets/images/konteyner.png",
-              "assets/images/konteyner.png"
+              "assets/images/konteyner-image-1.png",
+              "assets/images/konteyner-image-2.png",
+              "assets/images/konteyner-image-3.png",
+              "assets/images/konteyner-image-4.png",
+              "assets/images/konteyner-image-5.png",
+              "assets/images/konteyner-image-6.png"
             ]
           for item, i in containerImg
             - _id = "searchListItem"+i;
@@ -101,12 +104,22 @@ block content
                 h2.product-number 
                   strong Container Number: 
                   | ABCD 123XXX-X
-                p.product-location
-                  strong Container Location: 
-                  | Türkiye/İstanbul (ASIA)
-                p.product-type
-                  strong Container Type: 
-                  | 20
+                - if(i % 2 == 0)
+                  p.product-location
+                    strong Container Location: 
+                    | Türkiye/İstanbul (ASIA)
+                - if(i % 2 != 0)
+                  p.product-location
+                    strong Container Location: 
+                    | Türkiye/İstanbul (EUR)
+                - if(i % 2 == 0)
+                  p.product-type
+                    strong Container Type: 
+                    | 20"
+                - if(i % 2 != 0)
+                  p.product-type
+                    strong Container Type: 
+                    | 40"
                 p.product-year
                   strong Year of Manufacture: 
                   | 2016

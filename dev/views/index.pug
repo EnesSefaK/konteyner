@@ -13,26 +13,30 @@ block append banner
          br
          |Shipper’s Own Container
          br
-         |Easily
+         |Easily!
         //p.form-note  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, provident.
         .select-boxes
           .select-control
-            select.select(multiple= true, placeholder="Select Country", name="county")
+            select.select(placeholder="Select Country", name="county")
+              option Select Country
               option Turkey
               option Germany
               option Russia
           .select-control
-            select.select(multiple= true, placeholder="Select City", name="city")
+            select.select(placeholder="Select City", name="city")
               optgroup(label="Türkiye")
+                option Select City
                 option İstanbul
                 option Ankara
           .select-control
-            select.select(multiple= true, placeholder="Select Container Type", name="type")
+            select.select(placeholder="Select Container Type", name="type")
+              option Select Container Type
               option Type1
               option Type2
               option Type3
           .select-control
-            select.select(multiple= true, placeholder="Sizes", name="sizes")
+            select.select(placeholder="Sizes", name="sizes")
+              option Select Sizes
               option Size1
               option Size2
               option Size3
